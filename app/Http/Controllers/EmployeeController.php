@@ -33,7 +33,7 @@ class EmployeeController extends Controller
     //Function fetch all employee record
     public function getEmployee() {
 
-    	$data = Employee::paginate(40);
+    	$data = Employee::paginate(12);
 
     	return view('employee',['listemployee'=>$data]);
     }
@@ -65,6 +65,6 @@ class EmployeeController extends Controller
         $data->sallary = $request->sallary;
         $data->save();
 
-    	return back()->with("updated","successfuly has been updated!");
+    	return redirect('/');
     }
 }
