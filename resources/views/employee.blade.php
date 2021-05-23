@@ -13,6 +13,7 @@
 	<p class="text-right">
 	  <a href="/add" class="btn btn-success btn-md" style="margin: 5px;">Add New Employee</a>
     </p>
+
 	@if(Session::has('deleted'))
 	<span style="color: red; font-size: 18px;">
 		{{Session::get('deleted')}}
@@ -23,6 +24,7 @@
 	<table class="table table-striped table-hover table-sm">
 		<tr>
 			<th>ID</th>
+			<th>Photo</th>
 			<th>Name</th>
 			<th>Phone</th>
 			<th>Address</th>
@@ -33,6 +35,7 @@
 		@foreach ($listemployee as $item)
         <tr>
         	<td>{{$item->id}}</td>
+        	<td><img src="{{asset('images')}}/{{$item->photo}}" width="60" height="60"></td>
         	<td>{{$item->name}}</td>
         	<td>{{$item->phone}}</td>
         	<td>{{$item->address}}</td>

@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->decimal('sallary');
+            $table->string('photo');
             $table->timestamps();
         });
     }

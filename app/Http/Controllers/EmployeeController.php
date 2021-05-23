@@ -17,14 +17,21 @@ class EmployeeController extends Controller
 
     		'name'=> 'required',
     		'phone'=> 'required',
-    		'sallary'=> 'required'
+    		'sallary'=> 'required|integer',
+            'image' => 'required|mimes:png,jpg,jpeg'
     	]);
 
+        //get image name and extension
+        $image = $req->file('image');
+        $imageName = time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+      
     	$add = new Employee();
     	$add->name = $req->name;
     	$add->phone = $req->phone;
     	$add->address = $req->address;
-    	$add->sallary =$req->sallary;
+    	$add->sallary = $req->sallary;
+        $add->photo = $imageName; 
     	$add->save();
 
     	return back()->with('add-message','The new rocord has been added!');
@@ -57,10 +64,10 @@ class EmployeeController extends Controller
 
     //Function update employee record
     function update(Request $request) {
-
+     
     	$data = Employee::find($request->id);
-        $data->name = $request->name;
-        $data->phone = $request->phone;
+        $data->name    = $request->name;
+        $data->phone   = $request->phone;
         $data->address = $request->address;
         $data->sallary = $request->sallary;
         $data->save();

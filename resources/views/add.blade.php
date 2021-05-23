@@ -19,7 +19,7 @@
 	           <!--added success message -->
 			    @if(Session::has('add-message'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">{{Session::get('add-message')}}
-                   <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">&times;</button>
+                   <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                  </div>
 	            @endif
 
@@ -29,7 +29,7 @@
                  @endforeach
 			    </span>
 
-	<form action="add" method="POST">
+	<form action="add" method="POST"  enctype="multipart/form-data">
 		@csrf
 		<div class="row">
 			<div class="col-md-4">
@@ -50,6 +50,12 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<input type="text" name="sallary" class="form-control" placeholder="Enter sallary">
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="form-group">
+					<input type="file" name="image" class="form-control">
 				</div>
 			</div>
 			<div class="col-md-4">

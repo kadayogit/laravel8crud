@@ -50,6 +50,11 @@
           			<input type="text" name="sallary" class="form-control" value="{{$edit['sallary']}}" placeholder="Enter sallary">
           		</div>
           	</div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <input type="file" name="image" class="form-control">
+                </div>
+            </div>
           	<div class="col-md-6">
           		<div class="form-group">
           			<button type="submit" class="btn btn-block btn-danger">Update</button>
@@ -63,6 +68,8 @@
           </div>
 	</form>
 </div>
+
+  
 
 
 	<script src="{{asset('js/bootstrap.js')}}"></script>
